@@ -19,5 +19,4 @@ Interactive weather app built with HTML, CSS and vanilla JavaScript.
 | fetch + async/await, loading/error/empty | `searchCities`, `fetchForecast`, `loadWeather`, `showLoading/showError/showEmpty` |
 | localStorage | `store` helper; keys `wx.saved`, `wx.units`, `wx.last` |
 
-## Run
-Open `index.html` in a browser (internet connection required).
+
