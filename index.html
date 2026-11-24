@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skyline Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Skyline Weather</h1>
+    <div class="units" role="group" aria-label="Temperature unit">
+      <button type="button" id="unit-c" class="unit-btn">°C</button>
+      <button type="button" id="unit-f" class="unit-btn">°F</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="side">
+      <form id="search-form" class="search" autocomplete="off">
+        <label for="search-input" class="sr-only">Search for a city</label>
+        <input id="search-input" type="search" placeholder="Search a city, e.g. Chittagong" required>
+        <button type="submit">Search</button>
+      </form>
+      <ul id="search-results" class="results" aria-live="polite"></ul>
+
+      <h2 class="side-title">Saved cities</h2>
+      <ul id="saved-list" class="saved"></ul>
+      <p id="saved-empty" class="hint" hidden>No saved cities yet. Search for a city and press “Save city”.</p>
+    </aside>
+
+    <section class="main" aria-live="polite">
+      <div id="state" class="state" hidden></div>
+
+      <div id="weather" hidden>
+        <div class="current">
+          <div class="current-info">
+            <h2 id="city-name"></h2>
+            <p id="city-sub" class="muted"></p>
+            <button type="button" id="save-btn" class="ghost"></button>
+          </div>
+          <div class="current-temp">
+            <span id="cur-icon" class="big-icon" aria-hidden="true"></span>
+            <span id="cur-temp"></span>
+          </div>
+          <p id="cur-desc" class="cur-desc"></p>
+          <dl class="stats">
+            <div><dt>Feels like</dt><dd id="cur-feels"></dd></div>
+            <div><dt>Humidity</dt><dd id="cur-hum"></dd></div>
+            <div><dt>Wind</dt><dd id="cur-wind"></dd></div>
+          </dl>
+        </div>
+
+        <div class="forecast-head">
+          <h3>7-day forecast</h3>
+          <div class="filters" role="group" aria-label="Filter days">
+            <button type="button" class="chip active" data-filter="all">All</button>
+            <button type="button" class="chip" data-filter="rain">Rainy</button>
+            <button type="button" class="chip" data-filter="dry">Dry</button>
+          </div>
+        </div>
+        <div id="days" class="days"></div>
+        <p id="days-empty" class="hint" hidden>No days match this filter. Try “All”.</p>
+        <div id="day-detail" class="detail" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
